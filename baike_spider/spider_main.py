@@ -23,10 +23,10 @@ class SpiderMain(object):
                 new_url = self.urls.get_new_url()
                 print "craw %d : %s" % (count, new_url)
                 html_cont = self.downloader.download(new_url)
-                print html_cont
-                new_urls, new_data = self.parser.parser(new_url, html_cont)
-                self.urls.add_new_urls(new_urls)#批量添加url
-                self.outputer.collect_data(new_data)
+                print "html_cont:" ,html_cont
+                # new_urls, new_data = self.parser.parser(new_url, html_cont)
+                # self.urls.add_new_urls(new_urls)#批量添加url
+                # self.outputer.collect_data(new_data)
 
                 if count == 100:
                     break
@@ -40,7 +40,8 @@ class SpiderMain(object):
 
 
 if __name__=="__main__":
-    #root_url = "https://baike.baidu.com/item/Python"
-    root_url = "http://dcloud.io/mui.html"
+    root_url = "https://baike.baidu.com/item/Python"
+    # root_url = "https://www.baidu.com"
+    # root_url = "http://dcloud.io/mui.html"
     obj_spider = SpiderMain()
     obj_spider.craw(root_url)

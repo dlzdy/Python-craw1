@@ -17,7 +17,7 @@ class HtmlParser(object):
     #获取本页面新的url
     def _get_new_urls(self, page_url, soup):
         new_urls = set()
-        links = soup.find_all("a", href=re.compile(r"/item/\d+\.html"))#TODO
+        links = soup.find_all("a", href=re.compile(r"/item/"))#TODO
         for link in links:
             new_url = link["href"]
             new_ful_url = urlparse.urljoin(page_url, new_url)
@@ -36,6 +36,7 @@ class HtmlParser(object):
         """
         title_node = soup.find("dd", class_="lemmaWgt-lemmaTitle-title")
         res_data["title"] = title_node.get_text()
+        # res_data["title"] = title_node["h1"]
 
         #summary
         """

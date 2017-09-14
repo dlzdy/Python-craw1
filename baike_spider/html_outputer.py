@@ -15,11 +15,11 @@ class HtmlOutputer(object):
         fout.write("<table>")
         #ascii
         for data in self.datas:
-            fout.write("tr")
-            fout.write("<td>%s</td>" % data["url"])
+            fout.write("<tr>")
+            # fout.write("<td>%s</td>" % data["url"])
             fout.write("<td>%s</td>" % data["title"].encode("utf-8"))
-            fout.write("<td>%s</td>" % data["summary"].ecode("utf-8"))
-            fout.write("/tr")
+            fout.write("<td>%s</td>" % data["summary"].encode("utf-8"))
+            fout.write("</tr>")
 
         fout.write("</table>")
         fout.write("</body>")

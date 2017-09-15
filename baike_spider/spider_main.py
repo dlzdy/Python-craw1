@@ -23,10 +23,10 @@ class SpiderMain(object):
                 new_url = self.urls.get_new_url()
                 print "craw %d : %s" % (count, new_url)
                 html_cont = self.downloader.download(new_url)
-                print "html_cont:" ,html_cont
-                # new_urls, new_data = self.parser.parser(new_url, html_cont)
-                # self.urls.add_new_urls(new_urls)#批量添加url
-                # self.outputer.collect_data(new_data)
+                # print "html_cont:" ,html_cont
+                new_urls, new_data = self.parser.parser(new_url, html_cont)
+                self.urls.add_new_urls(new_urls)#批量添加url
+                self.outputer.collect_data(new_data)
 
                 if count == 100:
                     break
